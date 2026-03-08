@@ -5,7 +5,7 @@ A Rust prototype for fermionic normal ordering and CAS-aware symbolic contractio
 ## Status / Disclaimer
 
 This repository is an early-stage hackathon prototype built with substantial AI assistance.
-It is still under active development, and neither the code quality nor the scientific reliability should be considered validated yet.
+The code quality nor the scientific reliability should be considered validated yet.
 
 ## What This Repository Does
 
