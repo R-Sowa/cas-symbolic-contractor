@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "suite": "reference_one_body",
+  "cases": [
+    {
+      "name": "active_to_gamma",
+      "input": [
+        "create(u:active)",
+        "annihilate(v:active)"
+      ],
+      "expected": "gamma(u,v)"
+    },
+    {
+      "name": "virtual_to_zero",
+      "input": [
+        "create(a:virtual)",
+        "annihilate(b:virtual)"
+      ],
+      "expected": "0"
+    },
+    {
+      "name": "core_to_delta",
+      "input": [
+        "create(i:core)",
+        "annihilate(j:core)"
+      ],
+      "expected": "delta(i,j)"
+    },
+    {
+      "name": "core_active_mixed_to_zero",
+      "input": [
+        "create(i:core)",
+        "annihilate(u:active)"
+      ],
+      "expected": "0"
+    },
+    {
+      "name": "active_virtual_mixed_to_zero",
+      "input": [
+        "create(u:active)",
+        "annihilate(a:virtual)"
+      ],
+      "expected": "0"
+    }
+  ]
+}

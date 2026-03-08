@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "suite": "matrix_element",
+  "cases": [
+    {
+      "name": "canonical_overlap_like",
+      "left": [
+        "create(u:active)",
+        "annihilate(a:virtual)"
+      ],
+      "hamiltonian": null,
+      "right": [
+        "create(b:virtual)",
+        "annihilate(v:active)"
+      ],
+      "expected": "delta(a,b) * gamma(u,v)"
+    },
+    {
+      "name": "right_requires_normal_ordering",
+      "left": [
+        "create(u:active)",
+        "annihilate(a:virtual)"
+      ],
+      "hamiltonian": null,
+      "right": [
+        "annihilate(v:active)",
+        "create(b:virtual)"
+      ],
+      "expected": "- delta(a,b) * gamma(u,v)"
+    },
+    {
+      "name": "one_body_hamiltonian_in_middle",
+      "left": [
+        "create(u:active)",
+        "annihilate(a:virtual)"
+      ],
+      "hamiltonian": [
+        "create(x:active)",
+        "annihilate(y:active)"
+      ],
+      "right": [
+        "create(b:virtual)",
+        "annihilate(v:active)"
+      ],
+      "expected": "- delta(a,b) * Gamma(u,x;v,y)"
+    }
+  ]
+}

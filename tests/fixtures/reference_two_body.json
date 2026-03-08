@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "suite": "reference_two_body",
+  "cases": [
+    {
+      "name": "active_to_gamma2",
+      "input": [
+        "create(u:active)",
+        "create(v:active)",
+        "annihilate(w:active)",
+        "annihilate(x:active)"
+      ],
+      "expected": "Gamma(u,v;w,x)"
+    },
+    {
+      "name": "core_to_delta_delta",
+      "input": [
+        "create(i:core)",
+        "create(j:core)",
+        "annihilate(k:core)",
+        "annihilate(l:core)"
+      ],
+      "expected": "delta(i,l) * delta(j,k) - delta(i,k) * delta(j,l)"
+    },
+    {
+      "name": "core_active_to_signed_delta_gamma",
+      "input": [
+        "create(i:core)",
+        "create(u:active)",
+        "annihilate(j:core)",
+        "annihilate(v:active)"
+      ],
+      "expected": "- delta(i,j) * gamma(u,v)"
+    },
+    {
+      "name": "virtual_containing_two_body_to_zero",
+      "input": [
+        "create(a:virtual)",
+        "create(u:active)",
+        "annihilate(v:active)",
+        "annihilate(b:virtual)"
+      ],
+      "expected": "0"
+    }
+  ]
+}

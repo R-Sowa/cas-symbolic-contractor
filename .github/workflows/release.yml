@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  draft-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cache cargo artifacts
+        uses: Swatinem/rust-cache@v2
+
+      - name: Build release artifacts
+        run: cargo build --release
+
+      - name: Archive release artifacts
+        run: |
+          mkdir -p dist
+          tar -czf dist/symbolic_mr-${GITHUB_REF_NAME}.tar.gz target/release
+
+      - name: Create draft release
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          files: dist/symbolic_mr-${{ github.ref_name }}.tar.gz
